@@ -6,6 +6,6 @@
 if (typeof define !== 'function') {
     var define = require('amdefine')(module);
 }
-define(["require", "deepjs/deep", "./lib/view", "./lib/directives", "./lib/directives-parser", "./lib/dom-sheeter"], function(require, deep, views, directives, directivesParser, domsheets){
+define(["require", "deepjs/deep", "./lib/view", "./lib/directives", "./lib/dom-sheeter"], function(require, deep, views, directives, domsheets){
 	return deep;
 });
