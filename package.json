@@ -1,20 +1,20 @@
 {
-  "name": "deep-views",
-  "version": "0.2.0",
-  "author": "Gilles Coomans <gilles.coomans@gmail.com>",
-  "description": "Views controller, dom directives and dom-sheets for deepjs",
-  "licenses": [
-    {
-         "type": "LGPLv3.0",
-         "url": "http://www.gnu.org/licenses/lgpl-3.0.txt"
-     }
-  ],
-  "repository": {
-    "type":"git",
-    "url":"https://github.com/deepjs/deep-views.git"
-  },
-  "dependencies": {
-    "deepjs":">=0.13.1"
-  },
-  "main": "./index.js"
+ "name": "deep-views",
+ "version": "0.2.1",
+ "author": "Gilles Coomans <gilles.coomans@gmail.com>",
+ "description": "Views controller, dom directives and dom-sheets for deepjs",
+ "licenses": [
+  {
+   "type": "LGPLv3.0",
+   "url": "http://www.gnu.org/licenses/lgpl-3.0.txt"
+  }
+ ],
+ "repository": {
+  "type": "git",
+  "url": "https://github.com/deepjs/deep-views.git"
+ },
+ "dependencies": {
+  "deepjs": ">=0.13.1"
+ },
+ "main": "./index.js"
 }
