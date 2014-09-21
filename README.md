@@ -46,6 +46,19 @@ var view = deep.View({
 });
 ```
 
+ 
+"What" could be deeply structured. every loadable string (with a valid protocol in front) will be replaced by its result. 
+```javascript
+var view = deep.View({
+	what: { 
+		datas:"json::/json/profile.json",
+		otherDatas:"json::/json/comments.json"
+	},
+	how: "swig::/templates/simple-template.html",
+	where: "dom.appendTo::#content"
+});
+```
+
 
 "done" is executed after "where". Use it to bind custom behaviour.
 ```javascript
@@ -62,24 +75,13 @@ var view = deep.View({
 ```
 
 
- 
-"What" could be deeply structured. every loadable string (with a valid protocol in front) will be replaced by its result. 
-```javascript
-var view = deep.View({
-	what: { 
-		datas:"json::/json/profile.json",
-		otherDatas:"json::/json/comments.json"
-	},
-	how: "swig::/templates/simple-template.html",
-	where: "dom.appendTo::#content"
-});
-```
-
 Full description :
 ```javascript
 var view = deep.View({
 	init:function(){
-		// init views (bind event listeners, ...);	
+		// init views (bind event listeners, ...);
+		// fired each time that view will be placed in dom. 
+		// (if you refresh a view that is already in dom : it is not fired)
 	},
 	// what datas to render
 	what:{ /*...*/ }
@@ -101,6 +103,7 @@ var view = deep.View({
 	},
 	clean: function(){
 		// remove event listeners
+		// fired when its removed from dom
 	}
 });
 view.refresh();
@@ -111,8 +114,8 @@ A config entry could be added :
 ```javascript
 var view = deep.View({
 	config:{
-		scope:"browser",
-		relink:false
+		scope:"browser", // or "both" (default), or "server"
+		relink:false	// relink any anchor tag resent in rendered output to deeplink engine
 	},
 	how: "swig::/templates/simple-template.html",
 	where: "dom.appendTo::#content"
@@ -121,7 +124,7 @@ var view = deep.View({
 
 
 Directives could be used with views html output.
-Docs on directives coming soon.
+Docs on directives and dom-sheets coming soon.
 
 ## Licence
 
