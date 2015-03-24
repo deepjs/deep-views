@@ -2,11 +2,13 @@
 
 Views controller, dom directives and dom-sheets for deepjs
 
+For [jquery dom manipulator](./docs/jquery-dom.md), take a look there.
+
 Simple View :
 ```javascript
 var deep = require("deepjs");
-require("deep-views/lib/view");
-require("deep-jquery/lib/dom")("dom");
+require("deep-views/index");
+require("deep-views/lib/jquery-dom")("dom");
 
 var view = deep.View({
 	how: "<b>Hello my friend</b>",
@@ -33,7 +35,7 @@ var view = deep.View({
 ```javascript
 var deep = require("deepjs"); // core
 require("deep-views/index"); // views
-require("deep-jquery/lib/dom")("dom"); // dom protocol
+require("deep-views/lib/jquery-dom")("dom"); // dom protocol
 
 // browser side template and json client protocol
 require("deep-marked/lib/jq-ajax")("marked"); // server side use : deep-marked/lib/nodejs
