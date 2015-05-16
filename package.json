@@ -1,6 +1,6 @@
 {
 	"name": "deep-views",
-	"version": "0.2.5",
+	"version": "0.2.6",
 	"author": "Gilles Coomans <gilles.coomans@gmail.com>",
 	"description": "Views controller, dom directives and dom-sheets for deepjs",
 	"licenses": [{
@@ -12,7 +12,9 @@
 		"url": "https://github.com/deepjs/deep-views.git"
 	},
 	"dependencies": {
-		"deepjs": ">=0.13.1"
+		"deepjs": ">=0.15.2",
+		"kroked": ">=0.1.5"
 	},
 	"main": "./index.js"
 }
+
