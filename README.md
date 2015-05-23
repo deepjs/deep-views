@@ -1,6 +1,6 @@
 # deep-views
 
-Views controller, dom directives and dom-sheets for deepjs
+Views controller, dom directives and dom-sheets for deepjs.
 
 For [jquery dom manipulator](./docs/jquery-dom.md), take a look there.
 
@@ -8,9 +8,9 @@ Simple View :
 ```javascript
 var deep = require("deepjs");
 require("deep-views/index");
-require("deep-views/lib/jquery-dom")("dom");
+deep.protocols.dom = require("deep-views/lib/jquery-dom");
 
-var view = deep.View({
+var view = new deep.View({
 	how: "<b>Hello my friend</b>",
 	where: "dom.htmlOf::#content"
 });
@@ -20,7 +20,7 @@ view.refresh();
 
 "What" is injected in "how".
 ```javascript
-var view = deep.View({
+var view = new deep.View({
 	what: {
 		fullName:"John Rambo"
 	},
@@ -35,23 +35,22 @@ var view = deep.View({
 ```javascript
 var deep = require("deepjs"); // core
 require("deep-views/index"); // views
-require("deep-views/lib/jquery-dom")("dom"); // dom protocol
+deep.protocols.dom = require("deep-views/lib/jquery-dom"); // dom protocol
 
 // browser side template and json client protocol
-require("deep-marked/lib/jq-ajax")("marked"); // server side use : deep-marked/lib/nodejs
-require("deep-jquery/lib/ajax/json")("json"); // server side use : deep-node/lib/rest/file/json
+deep.protocols.marked = new require("deep-marked/lib/jq-ajax")(); // server side use : deep-marked/lib/nodejs
+deep.protocols.json = new require("deep-jquery-http/lib/json")(); // server side use : deep-node/lib/rest/file/json
 
-var view = deep.View({
+var view = new deep.View({
 	what: "json::/json/profile.json",
 	how: "marked::/templates/my-template.html",
 	where: "dom.prependTo::#content"
 });
 ```
-
  
 "What" could be deeply structured. every loadable string (with a valid protocol in front) will be replaced by its result. 
 ```javascript
-var view = deep.View({
+var view = new deep.View({
 	what: { 
 		datas:"json::/json/profile.json",
 		otherDatas:"json::/json/comments.json"
@@ -64,12 +63,12 @@ var view = deep.View({
 
 "done" is executed after "where". Use it to bind custom behaviour.
 ```javascript
-var view = deep.View({
+var view = new deep.View({
 	what: "json::/json/profile.json",
 	how: "swig::/templates/simple-template.html",
 	where: "dom.appendTo::#content",
 	done: function (renderObject) {
-		$(renderObject.placed).find("#fullname-span").click(function () {
+		deep.$(renderObject.placed).find("#fullname-span").click(function () {
 			window.alert("You clicked on a name");
 		});
 	}
